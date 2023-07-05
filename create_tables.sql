@@ -84,3 +84,34 @@ CREATE VIEW view_teachers AS
         ON table_teachers.id_faculty = table_faculties.id
     JOIN view_persons
         ON table_teachers.id_person = view_persons.id;
+
+CREATE VIEW view_students AS
+    SELECT table_students.id AS 'id',
+       view_persons.last_name AS 'last_name',
+       view_persons.first_name AS 'first_name',
+       table_faculties.name AS 'faculty_name',
+       table_groups.name AS 'group_name'
+    FROM table_students
+    JOIN view_persons
+        ON table_students.id_person = view_persons.id
+    JOIN table_faculties
+        ON table_students.id_faculty = table_faculties.id
+    JOIN table_groups
+        ON table_students.id_group = table_groups.id;
+
+CREATE VIEW view_ratings AS
+    SELECT table_ratings.id AS 'id',
+       table_ratings.date AS 'date',
+       view_students.last_name 'student_last_name',
+       view_students.first_name 'student_first_name',
+       table_subjects.name AS 'subject_name',
+       view_teachers.last_name AS 'teacher_last_name',
+       view_teachers.first_name AS 'teacher_first_name',
+       table_ratings.mark AS 'mark'
+    FROM table_ratings
+    JOIN view_students
+        ON table_ratings.id_student = view_students.id
+    JOIN table_subjects
+        ON table_ratings.id_subject = table_subjects.id
+    JOIN view_teachers
+        ON table_ratings.id_teacher = view_teachers.id;

@@ -14,3 +14,17 @@ INSERT INTO table_faculties (name) VALUES ('Design');
 
 INSERT INTO table_teachers (id_person, id_faculty) VALUES (1, 1);
 INSERT INTO table_teachers (id_person, id_faculty) VALUES (1, 2);
+
+INSERT INTO table_groups (name) VALUES ('G1');
+
+INSERT INTO table_students (id_person, id_faculty, id_group) VALUES (2, 1, 1);
+
+INSERT INTO table_subjects (name) VALUES ('Programming');
+INSERT INTO table_subjects (name) VALUES ('DB');
+
+INSERT INTO table_ratings (date, id_student, id_subject, id_teacher, mark)
+VALUES ('2023-7-4', 1, 1, 1, 3);
+INSERT INTO table_ratings (date, id_student, id_subject, id_teacher, mark)
+VALUES ('2023-7-5', 1, 1, 1, 5);
+INSERT INTO table_ratings (date, id_student, id_subject, id_teacher, mark)
+VALUES ('2023-7-3', 1, 2, 1, 5);
